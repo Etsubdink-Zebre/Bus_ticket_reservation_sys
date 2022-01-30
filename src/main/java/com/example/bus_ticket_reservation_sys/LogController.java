@@ -72,7 +72,7 @@ private ToggleGroup bg= null;
 
                     Scene scene = new Scene(fxmlLoader.load(), 834, 605);
                     Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
+window.setTitle("Bus Ticket Reservation");
                     window.setScene(scene);
                     window.show();}
         }
