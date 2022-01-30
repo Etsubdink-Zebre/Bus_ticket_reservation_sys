@@ -70,7 +70,7 @@ private ToggleGroup bg= null;
                 FXMLLoader fxmlLoader = new FXMLLoader(BusApplication.class.getResource("admin.fxml"));
                 if ((txt1.getText().equals(rs.getString(1))) && (pwd1.getText().equals(rs.getString(2)))) {
 
-                    Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+                    Scene scene = new Scene(fxmlLoader.load(), 834, 605);
                     Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
                     window.setScene(scene);
