@@ -12,9 +12,9 @@
 <?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" prefHeight="405.0" prefWidth="573.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bus_ticket_reservation_sys.LogController">
-    <stylesheets>
+   <stylesheets>
 
-    </stylesheets>
+   </stylesheets>
    <children>
       <Pane layoutY="-6.0" prefHeight="413.0" prefWidth="575.0">
          <children>

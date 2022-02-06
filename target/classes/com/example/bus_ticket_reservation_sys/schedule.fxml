@@ -23,10 +23,10 @@
             </Pane>
             <TableView id="table" fx:id="table" layoutY="86.0" prefHeight="200.0" prefWidth="361.0">
               <columns>
-                <TableColumn prefWidth="75.0" text="Bus Name" />
-                <TableColumn prefWidth="98.0" text="dep time" />
-                  <TableColumn prefWidth="90.0" text="Arrival Time" />
-                  <TableColumn prefWidth="97.0" text="Price" />
+                <TableColumn fx:id="bus" prefWidth="75.0" text="Bus Name" />
+                <TableColumn fx:id="deptime" prefWidth="98.0" text="Dep time" />
+                  <TableColumn fx:id="arrivaltime" prefWidth="90.0" text="Arrival Time" />
+                  <TableColumn fx:id="price" prefWidth="97.0" text="Price" />
               </columns>
             </TableView>
             <Label layoutX="416.0" layoutY="110.0" text="Select bus">

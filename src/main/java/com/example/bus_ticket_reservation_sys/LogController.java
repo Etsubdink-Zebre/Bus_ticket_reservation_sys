@@ -17,8 +17,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class LogController {
-Dbconnection db=new Dbconnection();
-Connection con=db.conMethod();
+    Dbconnection db=new Dbconnection();
+    Connection con=db.conMethod();
 
     @FXML
     private Button logbutt;
@@ -41,8 +41,8 @@ Connection con=db.conMethod();
 
     public LogController() throws ClassNotFoundException {
     }
-@FXML
-private ToggleGroup bg= null;
+    @FXML
+    private ToggleGroup bg= null;
 
     @FXML
     void login(ActionEvent event) throws SQLException, IOException {
@@ -58,24 +58,24 @@ private ToggleGroup bg= null;
             if(asuserbut.isSelected()){
                 FXMLLoader fxmlLoader = new FXMLLoader(BusApplication.class.getResource("book.fxml"));
 
-            if ((txt1.getText().equals(rs.getString(1))) && (pwd1.getText().equals(rs.getString(2)))) {
+                if ((txt1.getText().equals(rs.getString(1))) && (pwd1.getText().equals(rs.getString(2)))) {
 
-                Scene scene = new Scene(fxmlLoader.load(), 600, 400);
-                Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                    Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+                    Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
-                window.setScene(scene);
-                window.show();
-            } }
-        else if (asadminbut.isSelected()){
+                    window.setScene(scene);
+                    window.show();
+                } }
+            else if (asadminbut.isSelected()){
                 FXMLLoader fxmlLoader = new FXMLLoader(BusApplication.class.getResource("admin.fxml"));
                 if ((txt1.getText().equals(rs.getString(1))) && (pwd1.getText().equals(rs.getString(2)))) {
 
                     Scene scene = new Scene(fxmlLoader.load(), 834, 605);
                     Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-window.setTitle("Bus Ticket Reservation");
+                    window.setTitle("Bus Ticket Reservation");
                     window.setScene(scene);
                     window.show();}
-        }
+            }
         }}
 
 
@@ -95,7 +95,7 @@ window.setTitle("Bus Ticket Reservation");
     }
 
 
-   @FXML
+    @FXML
     void showpwd(ActionEvent event) {
 /*showpwdbutt.selectedProperty().addListener((ObservableListValue<?extends>,Boolean old val,Boolean));
      if(showpwdbutt.isSelected(){
@@ -109,8 +109,7 @@ window.setTitle("Bus Ticket Reservation");
      showpwdbutt.setVisible(false);});*/
 
 
-        }
     }
-
+}
 
 

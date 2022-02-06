@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -31,7 +32,7 @@ Connection c = dbc.conMethod();
     private TextField name;
 
     @FXML
-    private TextField pass;
+    private PasswordField passfield;
 
     @FXML
     private TextField pn;
@@ -68,7 +69,7 @@ String query = ("insert into Register(NAME,PHONE_NO,EMAIL,USERNAME,PASSWORD) val
             pst.setString(2,pn.getText());
             pst.setString(3,email.getText());
             pst.setString(4,username.getText());
-            pst.setString(5,pass.getText());
+            pst.setString(5,passfield.getText());
             pst.execute();
             JOptionPane.showMessageDialog(null,"insertion done!!!");
             FXMLLoader fxmlLoader = new FXMLLoader(BusApplication.class.getResource("log.fxml"));

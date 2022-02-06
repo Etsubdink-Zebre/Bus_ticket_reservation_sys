@@ -9,7 +9,6 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="599.0" prefWidth="834.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bus_ticket_reservation_sys.adminController">
    <children>
       <Pane layoutX="-1.0" layoutY="-3.0" prefHeight="605.0" prefWidth="841.0">
@@ -23,12 +22,12 @@
                   </Label>
                </children>
             </Pane>
-            <TableView id="tablebus" fx:id="tablebus" layoutX="282.0" layoutY="353.0" prefHeight="200.0" prefWidth="524.0">
+            <TableView id="tablebus" fx:id="table" layoutX="282.0" layoutY="353.0" prefHeight="200.0" prefWidth="524.0">
               <columns>
-                <TableColumn id="busid" prefWidth="115.0" text="Bus" />
-                <TableColumn id="depid" prefWidth="161.0" text="Dep time" />
-                  <TableColumn id="arriveid" prefWidth="148.0" text="Arrival time" />
-                  <TableColumn id="priceid" prefWidth="119.0" text="Price" />
+                <TableColumn id="busid" fx:id="bus" prefWidth="115.0" text="Bus" />
+                <TableColumn id="depid" fx:id="deptime" prefWidth="161.0" text="Dep time" />
+                  <TableColumn id="arriveid" fx:id="arrivaltime" prefWidth="136.0" text="Arrival time" />
+                  <TableColumn id="priceid" fx:id="price" prefWidth="109.0" text="Price" />
               </columns>
             </TableView>
             <Label layoutX="16.0" layoutY="426.0" prefHeight="27.0" prefWidth="105.0" text="Arrival time">
@@ -62,12 +61,13 @@
             </Button>
             <TableView id="tableuser" fx:id="tableuser" layoutX="35.0" layoutY="101.0" prefHeight="200.0" prefWidth="604.0">
                <columns>
-                  <TableColumn id="nameid" prefWidth="150.0" text="Name" />
-                  <TableColumn id="emailid" prefWidth="188.0" text="Email" />
-                  <TableColumn id="userid" prefWidth="124.0" text="Username" />
-                  <TableColumn id="phoneid" prefWidth="141.0" text="Phone no" />
+                  <TableColumn id="nameid" fx:id="name" prefWidth="150.0" text="Name" />
+                  <TableColumn id="emailid" fx:id="phoneno" prefWidth="188.0" text="Phone no" />
+                  <TableColumn id="userid" fx:id="email" prefWidth="124.0" text="Email" />
+                  <TableColumn id="phoneid" fx:id="username" prefWidth="141.0" text="Username" />
                </columns>
             </TableView>
+            <Button fx:id="logoutbut" layoutX="700.0" layoutY="317.0" mnemonicParsing="false" onAction="#logoutbut" text="logout" />
          </children>
       </Pane>
    </children>
