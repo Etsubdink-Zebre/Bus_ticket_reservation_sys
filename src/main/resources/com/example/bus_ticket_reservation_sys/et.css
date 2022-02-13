@@ -1,0 +1,24 @@
+
+.home_p-design{
+
+    -fx-background-image: url('manage_p.jpg') no-repeat;
+                    -fx-background-size: cover;
+                   }
+.logp-design{
+
+       -fx-background-image: url('pexels-photo.jpg') no-repeat;
+                   -fx-background-size: cover;
+                  }
+.schedulp_design{
+
+                  -fx-background-image: url('start-bus.jpg') no-repeat;
+                                     -fx-background-size: cover;
+                                    }
+  .bookp{
+            -fx-background-image: url('tiket_bus_online.jpg') no-repeat;
+             -fx-background-size: cover;
+            }
+ .reg{
+             -fx-background-image: url('Online_registration_photo.jpg') no-repeat;
+             -fx-background-size: cover;
+                }
