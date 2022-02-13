@@ -8,11 +8,11 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bus_ticket_reservation_sys.ScheduleController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="783.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bus_ticket_reservation_sys.ScheduleController">
    <children>
-      <Pane prefHeight="400.0" prefWidth="600.0">
+      <Pane fx:id="schedulp" prefHeight="400.0" prefWidth="783.0" styleClass="schedulp_design" stylesheets="@et.css">
          <children>
-            <Pane prefHeight="86.0" prefWidth="600.0" style="-fx-background-color: purple;">
+            <Pane prefHeight="86.0" prefWidth="783.0" style="-fx-background-color: purple;">
                <children>
                   <Label layoutX="160.0" layoutY="15.0" text="Bus schedule" textFill="WHITE">
                      <font>
@@ -21,31 +21,33 @@
                   </Label>
                </children>
             </Pane>
-            <TableView id="table" fx:id="table" layoutY="86.0" prefHeight="200.0" prefWidth="361.0">
-              <columns>
-                <TableColumn fx:id="bus" prefWidth="75.0" text="Bus Name" />
-                <TableColumn fx:id="deptime" prefWidth="98.0" text="Dep time" />
+            <TableView id="table" fx:id="table" layoutY="86.0" prefHeight="200.0" prefWidth="547.0">
+               <columns>
+                  <TableColumn fx:id="bus" prefWidth="75.0" text="Bus Name" />
+                  <TableColumn fx:id="deptime" prefWidth="98.0" text="Dep time" />
                   <TableColumn fx:id="arrivaltime" prefWidth="90.0" text="Arrival Time" />
                   <TableColumn fx:id="price" prefWidth="97.0" text="Price" />
-              </columns>
+                  <TableColumn fx:id="fromc" prefWidth="88.0" text="From city" />
+                  <TableColumn fx:id="toc" prefWidth="98.0" text="To city" />
+               </columns>
             </TableView>
-            <Label layoutX="416.0" layoutY="110.0" text="Select bus">
+            <Label layoutX="625.0" layoutY="100.0" text="Select bus">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
             </Label>
-            <ComboBox fx:id="selcetbbutt" layoutX="404.0" layoutY="137.0" onAction="#select" prefWidth="150.0" />
+            <ComboBox fx:id="selcetbbutt" layoutX="625.0" layoutY="137.0" onAction="#select" prefWidth="150.0" />
             <Button fx:id="backbut" layoutX="50.0" layoutY="319.0" mnemonicParsing="false" onAction="#back" style="-fx-background-color: brown;" text="Back" textFill="#fcf9f9">
                <font>
                   <Font name="System Bold" size="17.0" />
                </font>
             </Button>
-            <Button fx:id="exitbut" layoutX="485.0" layoutY="319.0" mnemonicParsing="false" onAction="#exit" style="-fx-background-color: red;" text="Exit">
+            <Button fx:id="exitbut" layoutX="700.0" layoutY="328.0" mnemonicParsing="false" onAction="#exit" style="-fx-background-color: red;" text="Exit">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Button>
-            <Button fx:id="bookbutt" layoutX="497.0" layoutY="173.0" mnemonicParsing="false" onAction="#book" style="-fx-background-color: cyan;" text="Book">
+            <Button fx:id="bookbutt" layoutX="720.0" layoutY="180.0" mnemonicParsing="false" onAction="#book" style="-fx-background-color: cyan;" text="Book">
                <font>
                   <Font name="System Bold Italic" size="13.0" />
                </font>

@@ -2,6 +2,8 @@ package com.example.bus_ticket_reservation_sys;
 
 import javafx.beans.InvalidationListener;
 import javafx.beans.value.ObservableListValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -29,54 +31,57 @@ public class LogController {
     @FXML
     private TextField txt1;
     @FXML
-
     private Button cancelbutt;
-    @FXML
-    private RadioButton asadminbut;
-    @FXML
-    private RadioButton asuserbut;
+
     @FXML
     private CheckBox showpwdbutt;
     private InvalidationListener ObservableListValue;
 
     public LogController() throws ClassNotFoundException {
     }
-    @FXML
-    private ToggleGroup bg= null;
+
 
     @FXML
     void login(ActionEvent event) throws SQLException, IOException {
         String qq= null;
-        if(asadminbut.isSelected()){
-            qq = "select USERNAME,PASSWORD from LOGIN";
-        }
-        else if(asuserbut.isSelected()){
-            qq ="select USERNAME,PASSWORD from REGISTER";
-        }
-        ResultSet rs=con.createStatement().executeQuery(qq);
-        while (rs.next()) {
-            if(asuserbut.isSelected()){
-                FXMLLoader fxmlLoader = new FXMLLoader(BusApplication.class.getResource("book.fxml"));
 
-                if ((txt1.getText().equals(rs.getString(1))) && (pwd1.getText().equals(rs.getString(2)))) {
-
-                    Scene scene = new Scene(fxmlLoader.load(), 600, 400);
-                    Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-                    window.setScene(scene);
-                    window.show();
-                } }
-            else if (asadminbut.isSelected()){
-                FXMLLoader fxmlLoader = new FXMLLoader(BusApplication.class.getResource("admin.fxml"));
-                if ((txt1.getText().equals(rs.getString(1))) && (pwd1.getText().equals(rs.getString(2)))) {
-
-                    Scene scene = new Scene(fxmlLoader.load(), 834, 605);
-                    Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                    window.setTitle("Bus Ticket Reservation");
-                    window.setScene(scene);
-                    window.show();}
+        String se= "select USERNAME,PASSWORD,ROLL from REGISTER where USERNAME ='" + txt1.getText() + "'";
+        try {
+            ResultSet res = con.createStatement().executeQuery(se);
+            while (res.next()){
+                if(txt1.getText().equals(res.getString(1))){
+                    if (pwd1.getText().equals(res.getString(2))) {
+                        if(res.getString(3).equals("ADMIN")) {
+                            FXMLLoader fxmlLoader = new FXMLLoader(BusApplication.class.getResource("admin1.fxml"));
+                            Scene scene=new Scene(fxmlLoader.load(),953,655);
+                            Stage window=(Stage)((Node)event.getSource()).getScene().getWindow();
+                            window.setTitle("Bus Ticket Reservation");
+                            window.setScene(scene);
+                            window.show();
+                        }
+                        else if(res.getString(3).equals("USER")){
+                            FXMLLoader fxmlLoader = new FXMLLoader(BusApplication.class.getResource("book.fxml"));
+                            Scene scene=new Scene(fxmlLoader.load(),600,400);
+                            Stage window=(Stage)((Node)event.getSource()).getScene().getWindow();
+                            window.setTitle("Bus Ticket Reservation");
+                            window.setScene(scene);
+                            window.show();
+                        }
+                    }
+                    else {
+                        JOptionPane.showMessageDialog(null, "Wrong password");
+                    }
+                }
+                else{
+                    JOptionPane.showMessageDialog(null, "Wrong Username");
+                }
             }
-        }}
+        }
+        catch (Exception e){
+          JOptionPane.showMessageDialog(null,"invalid username");
+            e.printStackTrace();
+        }
+    }
 
 
 
@@ -95,6 +100,8 @@ public class LogController {
     }
 
 
+
+
     @FXML
     void showpwd(ActionEvent event) {
 /*showpwdbutt.selectedProperty().addListener((ObservableListValue<?extends>,Boolean old val,Boolean));
@@ -102,8 +109,6 @@ public class LogController {
          showpwdbutt.setText(pwd1.getText());
          showpwdbutt.setVisible(true);
          pwd1.setVisible(false);
-
-
      }pwd1.setText(showpwdbutt.getText());
      pwd1.setVisible(true);
      showpwdbutt.setVisible(false);});*/
@@ -111,5 +116,3 @@ public class LogController {
 
     }
 }
-
-

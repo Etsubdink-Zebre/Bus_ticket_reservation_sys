@@ -12,7 +12,7 @@ public class BusApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(BusApplication.class.getResource("log.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+        Scene scene = new Scene(fxmlLoader.load(), 584, 417);
         stage.setTitle("Bus ticket reservation system!");
         stage.setScene(scene);
         stage.show();

@@ -17,8 +17,8 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class Regcontroller {
-Dbconnection dbc = new Dbconnection();
-Connection c = dbc.conMethod();
+    Dbconnection dbc = new Dbconnection();
+    Connection c = dbc.conMethod();
     @FXML
     private Button backbtn;
 
@@ -62,7 +62,7 @@ Connection c = dbc.conMethod();
 
     @FXML
     void submitmet(ActionEvent event) throws SQLException {
-String query = ("insert into Register(NAME,PHONE_NO,EMAIL,USERNAME,PASSWORD) values(?,?,?,?,?)");
+        String query = ("insert into Register(NAME,PHONE_NO,EMAIL,USERNAME,PASSWORD,ROLL) values(?,?,?,?,?,'USER')");
         PreparedStatement pst = c.prepareStatement(query);
         try{
             pst.setString(1,name.getText());

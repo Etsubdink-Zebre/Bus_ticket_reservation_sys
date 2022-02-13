@@ -23,12 +23,12 @@
                </children>
             </Pane>
             <TableView id="tablebus" fx:id="table" layoutX="282.0" layoutY="353.0" prefHeight="200.0" prefWidth="524.0">
-              <columns>
-                <TableColumn id="busid" prefWidth="115.0" text="Bus" />
-                <TableColumn id="depid" prefWidth="161.0" text="Dep time" />
+               <columns>
+                  <TableColumn id="busid" prefWidth="115.0" text="Bus" />
+                  <TableColumn id="depid" prefWidth="161.0" text="Dep time" />
                   <TableColumn id="arriveid" prefWidth="148.0" text="Arrival time" />
                   <TableColumn id="priceid" prefWidth="119.0" text="Price" />
-              </columns>
+               </columns>
             </TableView>
             <Label layoutX="16.0" layoutY="426.0" prefHeight="27.0" prefWidth="105.0" text="Arrival time">
                <font>
@@ -67,6 +67,7 @@
                   <TableColumn id="phoneid" prefWidth="141.0" text="Username" />
                </columns>
             </TableView>
+            <Button fx:id="view" layoutX="678.0" layoutY="133.0" mnemonicParsing="false" onAction="#viewbutt" text="view booked" />
          </children>
       </Pane>
    </children>

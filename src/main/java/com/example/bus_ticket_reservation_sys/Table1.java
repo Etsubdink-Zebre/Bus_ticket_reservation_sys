@@ -1,12 +1,14 @@
 package com.example.bus_ticket_reservation_sys;
 
 public class Table1 {
-    String  bus,deptime,arrivaltime,price;
-    public Table1(String  bus,String deptime,String arrivaltime,String price){
+    String  bus,deptime,arrivaltime,price,fromc,toc;
+    public Table1(String  bus,String deptime,String arrivaltime,String price,String fromc,String toc){
         this.bus=bus;
         this.deptime=deptime;
         this.arrivaltime=arrivaltime;
         this.price=price;
+        this.fromc=fromc;
+        this.toc=toc;
 
     }
     public String getBus(){
@@ -32,7 +34,19 @@ public class Table1 {
     }
     public void setPrice(String price){
         this.price=price;
+    }  public String getFromc(){
+        return fromc;
     }
+    public void setFromc(String fromc){
+        this.fromc=fromc;
+    }
+    public String getToc(){
+        return toc;
+    }
+    public void setToc(String toc){
+        this.toc=toc;
+    }
+
 
 
 }
