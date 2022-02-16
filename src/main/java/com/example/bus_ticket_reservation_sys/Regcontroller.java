@@ -71,7 +71,7 @@ public class Regcontroller {
             pst.setString(4,username.getText());
             pst.setString(5,passfield.getText());
             pst.execute();
-            JOptionPane.showMessageDialog(null,"insertion done!!!");
+            JOptionPane.showMessageDialog(null,"Registration successful!!!");
             FXMLLoader fxmlLoader = new FXMLLoader(BusApplication.class.getResource("log.fxml"));
             Scene scene = new Scene(fxmlLoader.load(), 600, 400);
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();

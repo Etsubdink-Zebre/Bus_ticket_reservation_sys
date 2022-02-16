@@ -29,7 +29,7 @@
                   <Font name="System Bold" size="17.0" />
                </font></Button>
             <Button fx:id="cancelbutt" layoutX="480.0" layoutY="252.0" mnemonicParsing="false" onAction="#cancel" prefHeight="38.0" prefWidth="70.0" style="-fx-background-color: red;" text="Cancel" />
-            <CheckBox fx:id="showpwdbutt" layoutX="368.0" layoutY="217.0" mnemonicParsing="false" onAction="#showpwd" style="-fx-background-color: grey;" text="show password" textFill="#ffe6e6">
+            <CheckBox fx:id="showpwdbutt" layoutX="368.0" layoutY="217.0" mnemonicParsing="false"  style="-fx-background-color: grey;" text="show password" textFill="#ffe6e6">
                <font>
                   <Font size="16.0" />
                </font></CheckBox>
@@ -50,6 +50,7 @@
                   <Font name="Comic Sans MS" size="20.0" />
                </font>
             </Button>
+            <TextField fx:id="txt11" layoutX="261.0" layoutY="181.0" prefHeight="25.0" prefWidth="292.0" visible="false" />
          </children>
       </Pane>
    </children>

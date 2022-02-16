@@ -7,18 +7,22 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import javax.swing.*;
 import java.io.IOException;
+import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ResourceBundle;
 
-public class LogController {
+public class LogController implements Initializable {
     Dbconnection db=new Dbconnection();
     Connection con=db.conMethod();
 
@@ -31,10 +35,14 @@ public class LogController {
     @FXML
     private TextField txt1;
     @FXML
+    private TextField txt11;
+    @FXML
     private Button cancelbutt;
 
     @FXML
     private CheckBox showpwdbutt;
+    private String password;
+
     private InvalidationListener ObservableListValue;
 
     public LogController() throws ClassNotFoundException {
@@ -60,8 +68,8 @@ public class LogController {
                             window.show();
                         }
                         else if(res.getString(3).equals("USER")){
-                            FXMLLoader fxmlLoader = new FXMLLoader(BusApplication.class.getResource("book.fxml"));
-                            Scene scene=new Scene(fxmlLoader.load(),600,400);
+                            FXMLLoader fxmlLoader = new FXMLLoader(BusApplication.class.getResource("schedule.fxml"));
+                            Scene scene=new Scene(fxmlLoader.load(),783,400);
                             Stage window=(Stage)((Node)event.getSource()).getScene().getWindow();
                             window.setTitle("Bus Ticket Reservation");
                             window.setScene(scene);
@@ -101,18 +109,25 @@ public class LogController {
 
 
 
-
     @FXML
-    void showpwd(ActionEvent event) {
-/*showpwdbutt.selectedProperty().addListener((ObservableListValue<?extends>,Boolean old val,Boolean));
-     if(showpwdbutt.isSelected(){
-         showpwdbutt.setText(pwd1.getText());
-         showpwdbutt.setVisible(true);
-         pwd1.setVisible(false);
-     }pwd1.setText(showpwdbutt.getText());
-     pwd1.setVisible(true);
-     showpwdbutt.setVisible(false);});*/
+    void showP(ActionEvent event) {
+        if(showpwdbutt.isSelected()){
+            password = pwd1.getText();
 
+            txt11.setPromptText(password);
+            txt11.setVisible(true);
+            pwd1.setVisible(false);
+        }
+        else{
+            txt11.setVisible(false);
+            //  pwd1.setText(txt11.getText());
+            pwd1.setVisible(true);
+        }
+    }
+
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
 
     }
 }

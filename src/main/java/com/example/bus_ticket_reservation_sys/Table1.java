@@ -1,14 +1,15 @@
 package com.example.bus_ticket_reservation_sys;
 
 public class Table1 {
-    String  bus,deptime,arrivaltime,price,fromc,toc;
-    public Table1(String  bus,String deptime,String arrivaltime,String price,String fromc,String toc){
+    String  bus,deptime,arrivaltime,price,fromc,toc,id;
+    public Table1(String  bus,String deptime,String arrivaltime,String price,String fromc,String toc,String id){
         this.bus=bus;
         this.deptime=deptime;
         this.arrivaltime=arrivaltime;
         this.price=price;
         this.fromc=fromc;
         this.toc=toc;
+        this.id=id;
 
     }
     public String getBus(){
@@ -34,9 +35,8 @@ public class Table1 {
     }
     public void setPrice(String price){
         this.price=price;
-    }  public String getFromc(){
-        return fromc;
     }
+    public String getFromc(){return fromc;}
     public void setFromc(String fromc){
         this.fromc=fromc;
     }
@@ -47,6 +47,11 @@ public class Table1 {
         this.toc=toc;
     }
 
-
+    public String getId(){
+        return id;
+    }
+    public void setId(String id){
+        this.id=id;
+    }
 
 }

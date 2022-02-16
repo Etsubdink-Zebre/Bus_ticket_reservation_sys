@@ -14,8 +14,8 @@
                   -fx-background-image: url('start-bus.jpg') no-repeat;
                                      -fx-background-size: cover;
                                     }
-  .bookp{
-            -fx-background-image: url('tiket_bus_online.jpg') no-repeat;
+  .viewp{
+            -fx-background-image: url('manage_p.jpg') no-repeat;
              -fx-background-size: cover;
             }
  .reg{

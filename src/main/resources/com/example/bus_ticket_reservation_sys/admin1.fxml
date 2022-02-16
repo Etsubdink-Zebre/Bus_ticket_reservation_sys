@@ -11,25 +11,26 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="649.0" prefWidth="947.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bus_ticket_reservation_sys.adminController">
    <children>
-      <Pane fx:id="home_p" prefHeight="655.0" prefWidth="953.0" styleClass="home_p-design" stylesheets="@et.css">
+      <Pane fx:id="home_p" layoutX="-4.0" layoutY="-5.0" prefHeight="660.0" prefWidth="956.0" styleClass="home_p-design" stylesheets="@et.css">
          <children>
-            <Pane layoutY="-6.0" prefHeight="74.0" prefWidth="953.0" style="-fx-background-color: purple;">
+            <Pane layoutY="-6.0" prefHeight="74.0" prefWidth="953.0">
                <children>
-                  <Label layoutX="348.0" layoutY="10.0" text="Admin form" textFill="#fcf3f3">
+                  <Label layoutX="348.0" layoutY="10.0" text="Admin form">
                      <font>
-                        <Font name="System Bold" size="38.0" />
+                        <Font name="System Bold" size="44.0" />
                      </font>
                   </Label>
                </children>
             </Pane>
-            <TableView id="tablebus" fx:id="table" layoutX="289.0" layoutY="353.0" prefHeight="200.0" prefWidth="657.0">
+            <TableView id="tablebus" fx:id="table" layoutX="289.0" layoutY="352.0" prefHeight="200.0" prefWidth="657.0">
                <columns>
-                  <TableColumn id="busid" fx:id="bus" prefWidth="115.0" text="Bus" />
-                  <TableColumn id="depid" fx:id="deptime" prefWidth="78.0" text="Dep time" />
-                  <TableColumn id="arriveid" fx:id="arrivaltime" prefWidth="103.0" text="Arrival time" />
-                  <TableColumn id="priceid" fx:id="price" prefWidth="116.0" text="Price" />
-                  <TableColumn fx:id="fromc" prefWidth="113.0" text="From city" />
-                  <TableColumn fx:id="toc" prefWidth="131.0" text="To city" />
+                  <TableColumn id="busid" fx:id="bus" prefWidth="95.0" text="Bus" />
+                  <TableColumn id="depid" fx:id="deptime" prefWidth="98.0" text="Dep time" />
+                  <TableColumn id="arriveid" fx:id="arrivaltime" prefWidth="98.0" text="Arrival time" />
+                  <TableColumn id="priceid" fx:id="price" prefWidth="113.0" text="Price" />
+                  <TableColumn fx:id="fromc" prefWidth="110.0" text="From city" />
+                  <TableColumn fx:id="toc" prefWidth="78.0" text="To city" />
+                  <TableColumn fx:id="id" prefWidth="64.0" text="Id" />
                </columns>
             </TableView>
             <Label layoutX="16.0" layoutY="426.0" prefHeight="27.0" prefWidth="105.0" text="Arrival time">
@@ -56,7 +57,7 @@
             <TextField fx:id="deptxt" layoutX="133.0" layoutY="393.0" />
             <TextField fx:id="arrivaltxt" layoutX="133.0" layoutY="427.0" />
             <TextField fx:id="pricetxt" layoutX="133.0" layoutY="463.0" />
-            <Button fx:id="addbut" layoutX="207.0" layoutY="573.0" mnemonicParsing="false" onAction="#add" style="-fx-background-color: cyan;" text="Add">
+            <Button fx:id="addbut" layoutX="289.0" layoutY="593.0" mnemonicParsing="false" onAction="#add" style="-fx-background-color: cyan;" text="Add">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
@@ -81,7 +82,15 @@
             </Label>
             <TextField fx:id="fromtxt" layoutX="133.0" layoutY="501.0" />
             <TextField fx:id="totxt" layoutX="133.0" layoutY="541.0" />
-            <Button fx:id="logoutbut" layoutX="739.0" layoutY="167.0" mnemonicParsing="false" text="Logout" textFill="#9717a8" />
+            <Button fx:id="logoutbut" layoutX="869.0" layoutY="600.0" mnemonicParsing="false" onAction="#logout" text="Logout" textFill="#9717a8" />
+            <Button fx:id="deletbut" layoutX="512.0" layoutY="600.0" mnemonicParsing="false" onAction="#delete" text="Delete" />
+            <Label layoutX="21.0" layoutY="571.0" text="Id">
+               <font>
+                  <Font name="System Bold" size="23.0" />
+               </font>
+            </Label>
+            <TextField fx:id="idtxt" layoutX="133.0" layoutY="576.0" />
+            <Button fx:id="next" layoutX="742.0" layoutY="141.0" mnemonicParsing="false" onAction="#next" text="Next" />
          </children>
       </Pane>
    </children>

@@ -12,6 +12,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
+import javax.security.auth.Refreshable;
 import javax.swing.*;
 import java.io.IOException;
 import java.net.URL;
@@ -21,9 +22,10 @@ import java.util.ResourceBundle;
 public class adminController implements Initializable {
     Dbconnection dbc = new Dbconnection();
     Connection c = dbc.conMethod();
+    PreparedStatement pst;
     Alert al;
-    ObservableList<Table1> oblist= FXCollections.observableArrayList();
-    ObservableList<Table2>oblist2=FXCollections.observableArrayList();
+    ObservableList<Table1> oblist = FXCollections.observableArrayList();
+    ObservableList<Table2> oblist2 = FXCollections.observableArrayList();
 
     @FXML
     private Button addbut;
@@ -39,7 +41,7 @@ public class adminController implements Initializable {
     private TableColumn<Table2, String> username;
 
     @FXML
-    private TableColumn<Table1,String> bus;
+    private TableColumn<Table1, String> bus;
     @FXML
 
     private TableColumn<Table1, String> deptime;
@@ -50,6 +52,8 @@ public class adminController implements Initializable {
     @FXML
     private TableColumn<Table1, String> toc;
     @FXML
+    private TableColumn<Table1, String> id;
+    @FXML
     private TextField arrivaltxt;
 
     @FXML
@@ -58,7 +62,8 @@ public class adminController implements Initializable {
     private TextField fromtxt;
     @FXML
     private TextField totxt;
-
+    @FXML
+    private Button next;
 
     @FXML
     private TextField deptxt;
@@ -67,7 +72,10 @@ public class adminController implements Initializable {
     private TextField pricetxt;
     @FXML
     private Button logoutbut;
-
+    @FXML
+    private TextField idtxt;
+    @FXML
+    private Button deletbut;
     @FXML
     private TableView<Table1> table;
 
@@ -76,7 +84,7 @@ public class adminController implements Initializable {
 
     @FXML
     void add(ActionEvent event) throws SQLException {
-        String query = ("insert into BUS_SCHEDULE(BUS,DEP_TIME,ARRIVAL_TIME,PRICE,FROM_CITY,TO_CITY) values(?,?,?,?,?,?)");
+        String query = ("insert into BUS_SCHEDULE(BUS,DEP_TIME,ARRIVAL_TIME,PRICE,FROM_CITY,TO_CITY,ID) values(?,?,?,?,?,?,?)");
         PreparedStatement pst = c.prepareStatement(query);
         try {
             pst.setString(1, bustxt.getText());
@@ -85,28 +93,61 @@ public class adminController implements Initializable {
             pst.setString(4, pricetxt.getText());
             pst.setString(5, fromtxt.getText());
             pst.setString(6, totxt.getText());
+            pst.setString(7, idtxt.getText());
             pst.execute();
             JOptionPane.showMessageDialog(null, "insertion done!!!");
- refreshTable();
+            refreshTable();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
     @FXML
-    void logout(ActionEvent event) {
-        Stage stage = (Stage) logoutbut.getScene().getWindow();
-        stage.close();
+    void next(ActionEvent event) throws IOException {
+
+        FXMLLoader fxmlLoader = new FXMLLoader(BusApplication.class.getResource("view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 798, 457);
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setScene(scene);
+        window.show();
+    }
+
+    @FXML
+    void delete(ActionEvent event) {
+
+       String lbl1 = idtxt.getText();
+        String sql = "delete from BUS_SCHEDULE where Id= '"+lbl1+"'";
+        try{ Connection c = dbc.conMethod();
+            pst = c.prepareStatement(sql);
+            pst.executeUpdate();
+
+            JOptionPane.showMessageDialog(null, "Deleted succsecfully");
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Try again!!");
+        }
+        refreshTable();
+
+    }
+
+    @FXML
+    void logout(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(BusApplication.class.getResource("log.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setScene(scene);
+        window.show();
     }
 public void refreshTable(){
         oblist.clear();
     try {
-        String query = "select BUS,DEP_TIME,ARRIVAL_TIME,PRICE,FROM_CITY,TO_CITY from BUS_SCHEDULE";
+        String query = "select BUS,DEP_TIME,ARRIVAL_TIME,PRICE,FROM_CITY,TO_CITY,ID from BUS_SCHEDULE";
 
         Statement st = c.createStatement();
         ResultSet rs = st.executeQuery(query);
 
         while (rs.next()) {
-            oblist.add(new Table1(rs.getString("BUS"), rs.getString("DEP_TIME"), rs.getString("ARRIVAL_TIME"), rs.getString("PRICE"),  rs.getString("FROM_CITY") ,rs.getString("TO_CITY")));
+            oblist.add(new Table1(rs.getString("BUS"), rs.getString("DEP_TIME"), rs.getString("ARRIVAL_TIME"), rs.getString("PRICE"),  rs.getString("FROM_CITY") ,rs.getString("TO_CITY"), rs.getString("Id")));
 
         }
     } catch (SQLException e) {
@@ -118,7 +159,7 @@ public void refreshTable(){
     price.setCellValueFactory(new PropertyValueFactory<>("price"));
     fromc.setCellValueFactory(new PropertyValueFactory<>("fromc"));
     toc.setCellValueFactory(new PropertyValueFactory<>("toc"));
-
+    id.setCellValueFactory(new PropertyValueFactory<>("id"));
     table.setItems(oblist);
 }
 
@@ -127,13 +168,13 @@ public void refreshTable(){
         Dbconnection dbc = new Dbconnection();
         Connection c = dbc.conMethod();
 
-        String query = "select BUS,DEP_TIME,ARRIVAL_TIME,PRICE,FROM_CITY,TO_CITY from BUS_SCHEDULE";
+        String query = "select BUS,DEP_TIME,ARRIVAL_TIME,PRICE,FROM_CITY,TO_CITY,ID from BUS_SCHEDULE";
         try {
             Statement st = c.createStatement();
             ResultSet rs = st.executeQuery(query);
 
             while (rs.next()) {
-                oblist.add(new Table1(rs.getString("BUS"), rs.getString("DEP_TIME"), rs.getString("ARRIVAL_TIME"), rs.getString("PRICE"),  rs.getString("FROM_CITY") ,rs.getString("TO_CITY")));
+                oblist.add(new Table1(rs.getString("BUS"), rs.getString("DEP_TIME"), rs.getString("ARRIVAL_TIME"), rs.getString("PRICE"),  rs.getString("FROM_CITY") ,rs.getString("TO_CITY"), rs.getString("ID")));
 
             }
         } catch (SQLException e) {
@@ -145,6 +186,7 @@ public void refreshTable(){
         price.setCellValueFactory(new PropertyValueFactory<>("price"));
         fromc.setCellValueFactory(new PropertyValueFactory<>("fromc"));
         toc.setCellValueFactory(new PropertyValueFactory<>("toc"));
+        id.setCellValueFactory(new PropertyValueFactory<>("id"));
         table.setItems(oblist);
 
         String q="select NAME,PHONE_NO,EMAIL,USERNAME from REGISTER";

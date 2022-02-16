@@ -48,8 +48,7 @@ String from_c=null;
     private TableView<Table1> table;
     @FXML
     private Button findbutt;
-@FXML
-private TextField datefield;
+
     @FXML
     void backbutt(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(BusApplication.class.getResource("log.fxml"));
@@ -66,7 +65,7 @@ private TextField datefield;
         stage.close();
 
     }
-    @FXML
+    /*@FXML
     void findbus(ActionEvent event) throws IOException {
         String cond = "select FROM_CITY,TO_CITY from BUS_SCHEDULE where FROM_CITY='" + fromc.getSelectionModel().getSelectedItem() + "' and TO_CITY='" + toc.getSelectionModel().getSelectedItem() + "' ";
         try {
@@ -82,7 +81,7 @@ private TextField datefield;
             e.printStackTrace();
         }
 
-    }
+    }*/
 
 
 
@@ -96,12 +95,13 @@ private TextField datefield;
     void toch(ActionEvent event) {
 
     }
-
-    @Override
+   @Override
     public void initialize(URL location, ResourceBundle resources) {
         populate();
-}
- public void populate(){
+
+    }
+
+    public void populate(){
      ResultSet rs;
      ObservableList<String> list = FXCollections.observableArrayList();
      ObservableList<String> list2 = FXCollections.observableArrayList();

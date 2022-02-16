@@ -9,12 +9,12 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" opacity="0.96" prefHeight="409.0" prefWidth="584.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bus_ticket_reservation_sys.LogController">
+<AnchorPane id="AnchorPane" opacity="0.96" prefHeight="405.0" prefWidth="573.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bus_ticket_reservation_sys.LogController">
    <stylesheets>
 
    </stylesheets>
    <children>
-      <Pane fx:id="logp" layoutY="-4.0" prefHeight="417.0" prefWidth="584.0" styleClass="logp-design" stylesheets="@et.css">
+      <Pane fx:id="logp" layoutX="-1.0" layoutY="-4.0" prefHeight="413.0" prefWidth="575.0" styleClass="logp-design" stylesheets="@et.css">
          <children>
             <Label layoutX="94.0" layoutY="122.0" prefHeight="40.0" prefWidth="131.0" style="-fx-background-color: grey;" text="User name" textFill="#ffbfbf">
                <font>
@@ -29,7 +29,7 @@
                   <Font name="System Bold" size="17.0" />
                </font></Button>
             <Button fx:id="cancelbutt" layoutX="480.0" layoutY="252.0" mnemonicParsing="false" onAction="#cancel" prefHeight="38.0" prefWidth="70.0" style="-fx-background-color: red;" text="Cancel" />
-            <CheckBox fx:id="showpwdbutt" layoutX="368.0" layoutY="217.0" mnemonicParsing="false" onAction="#showpwd" style="-fx-background-color: grey;" text="show password" textFill="#ffe6e6">
+            <CheckBox fx:id="showpwdbutt" layoutX="368.0" layoutY="217.0" mnemonicParsing="false"  style="-fx-background-color: grey;" text="show password" textFill="#ffe6e6">
                <font>
                   <Font size="16.0" />
                </font></CheckBox>
@@ -50,6 +50,7 @@
                   <Font name="Comic Sans MS" size="20.0" />
                </font>
             </Button>
+            <TextField fx:id="txt11" layoutX="261.0" layoutY="181.0" prefHeight="25.0" prefWidth="292.0" visible="false" />
          </children>
       </Pane>
    </children>
